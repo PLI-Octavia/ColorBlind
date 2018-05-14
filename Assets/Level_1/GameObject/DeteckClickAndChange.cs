@@ -20,6 +20,12 @@ public class DeteckClickAndChange : MonoBehaviour {
         GameObject[] blocksToChange;
         string tag;
 
+        //A déplacer dans le GameManager
+        var colorBlockArray = new Dictionary<string, Color>();
+        colorBlockArray.Add("red", Color.red);
+        colorBlockArray.Add("yellow", Color.yellow);
+        colorBlockArray.Add("black", Color.black);
+
         tag = this.gameObject.tag;
 
         //We search every GO with the tag of the color selected
@@ -28,7 +34,7 @@ public class DeteckClickAndChange : MonoBehaviour {
         foreach (GameObject block in blocksToChange)
         {
             //TODO check la réponse par rapport à l'info envoyée et changer la couleur
-            block.GetComponent<Renderer>().material.color = Singleton.Instance.colorBlockArray[tag];
+            block.GetComponent<Renderer>().material.color = colorBlockArray[tag];
         }
 
     }
