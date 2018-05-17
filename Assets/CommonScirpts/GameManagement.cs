@@ -11,7 +11,8 @@ public class Singleton : MonoBehaviour
     public System.Random rnd = new System.Random();
     public int score = 0;
     public Dictionary<string, Color> colorBlockArray = new Dictionary<string, Color>();
-
+    public ArrayList ar = new ArrayList();
+    public string answer;
     // Static singleton instance
     private static Singleton instance;
 
@@ -28,11 +29,16 @@ public class Singleton : MonoBehaviour
         get { return instance ?? (instance = new GameObject("Singleton").AddComponent<Singleton>()); }
     }
 
-
+    //Set the color array
     public void SetColor()
     {
         colorBlockArray.Add("red", Color.red);
         colorBlockArray.Add("yellow", Color.yellow);
         colorBlockArray.Add("black", Color.black);
+        colorBlockArray.Add("blue", Color.blue);
+        colorBlockArray.Add("green", Color.green);
+        colorBlockArray.Add("pink", new Color(1, 0, 0.78f));
+        colorBlockArray.Add("purple", new Color(0.84f, 0, 1));
+
     }
 }
