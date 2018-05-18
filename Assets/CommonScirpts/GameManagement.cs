@@ -16,7 +16,7 @@ public class Singleton : MonoBehaviour
     // Static singleton instance
     private static Singleton instance;
     public int answerNow = 0;
-    public  string[] allColorAvaible = new string[] { "blue", "red", "yellow", "purple", "pink", "black", "green" };
+    public  static string[] allColorAvaible = new string[] { "blue", "red", "yellow", "purple", "pink", "black", "green" };
     private Singleton()
     {
         SetColor();

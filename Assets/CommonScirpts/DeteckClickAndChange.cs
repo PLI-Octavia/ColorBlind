@@ -31,7 +31,6 @@ public class DeteckClickAndChange : MonoBehaviour {
             {
                 if (block.name != "Cube")
                 {
-                    Debug.Log(tag);
                     Singleton.Instance.colorBlockArray.Remove(tag);
                     Destroy(block);
                 }
@@ -40,7 +39,14 @@ public class DeteckClickAndChange : MonoBehaviour {
                     block.GetComponent<Renderer>().material.color = Singleton.Instance.colorBlockArray[tag];
                 }
             }
+            //We launch an other answer
             Singleton.Instance.answerNow = 0;
+            //Remove element from the table
+            //int index = Singleton.Instance.rnd.Next(0, Singleton.allColorAvaible.Length - 1);
+            List<string> list = new List<string>(Singleton.allColorAvaible);
+            int index = list.IndexOf(tag);
+            list.RemoveAt(index);
+            Singleton.allColorAvaible = list.ToArray();
         }
         else
         {
