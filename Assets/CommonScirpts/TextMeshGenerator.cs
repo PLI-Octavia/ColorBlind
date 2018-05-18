@@ -6,9 +6,9 @@ public class TextMeshGenerator : MonoBehaviour {
 
 
    
-    private string tag;
+    //private string tag;
     private TextMesh mesh;
-
+    private string tag;
     //public System.Random rnd = new System.Random();
     // Use this for initialization
     void Start () {
@@ -24,12 +24,10 @@ public class TextMeshGenerator : MonoBehaviour {
 
         //Set opt of the text Mesh
         this.mesh = this.GetComponent<TextMesh>();
-        Debug.Log(index);
-        Debug.Log(Singleton.allColorAvaible.Length);
-
         this.tag = Singleton.allColorAvaible[index];
         this.mesh.text = tag;
-        this.name = tag;
+        gameObject.name = tag;
+        gameObject.tag = "question";
         Singleton.Instance.answer = tag;
         this.mesh.fontSize = 50;
         this.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);

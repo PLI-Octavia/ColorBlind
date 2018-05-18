@@ -47,6 +47,10 @@ public class DeteckClickAndChange : MonoBehaviour {
             int index = list.IndexOf(tag);
             list.RemoveAt(index);
             Singleton.allColorAvaible = list.ToArray();
+
+            GameObject[] tt = GameObject.FindGameObjectsWithTag("question");
+            Destroy(tt[0]);
+
         }
         else
         {
