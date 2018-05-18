@@ -29,13 +29,25 @@ public class DeteckClickAndChange : MonoBehaviour {
 
             foreach (GameObject block in blocksToChange)
             {
-                //TODO check la réponse par rapport à l'info envoyée et changer la couleur
-                block.GetComponent<Renderer>().material.color = Singleton.Instance.colorBlockArray[tag];
+                if (block.name != "Cube")
+                {
+                    Debug.Log(tag);
+                    Singleton.Instance.colorBlockArray.Remove(tag);
+                    Destroy(block);
+                }
+                else
+                {
+                    block.GetComponent<Renderer>().material.color = Singleton.Instance.colorBlockArray[tag];
+                }
             }
+            Singleton.Instance.answerNow = 0;
         }
         else
         {
             Debug.Log("Perdu");
         }
+
+
+
     }
 }

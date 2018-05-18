@@ -11,10 +11,20 @@ public class QuestionViews : MonoBehaviour {
     void Start()
     {
         this.affColorPalette();
-        this.affOneQuestion();
+        
     }
 
-    
+    private void Update()
+    {
+        if (Singleton.Instance.answerNow == 0 && Singleton.Instance.colorBlockArray.Count != 0)
+        {
+            Singleton.Instance.answerNow = 1;
+            this.affOneQuestion();
+        } else if(Singleton.Instance.colorBlockArray.Count == 0) {
+            //On load le menu
+            Debug.Log("Go menu");
+        }
+    }
 
 
     //Init color palette
