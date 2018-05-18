@@ -29,7 +29,7 @@ public class DeteckClickAndChange : MonoBehaviour {
 
             foreach (GameObject block in blocksToChange)
             {
-                if (block.name != "Cube")
+                if (!block.name.Contains("Cube"))
                 {
                     Singleton.Instance.colorBlockArray.Remove(tag);
                     Destroy(block);
@@ -42,14 +42,15 @@ public class DeteckClickAndChange : MonoBehaviour {
             //We launch an other answer
             Singleton.Instance.answerNow = 0;
             //Remove element from the table
-            //int index = Singleton.Instance.rnd.Next(0, Singleton.allColorAvaible.Length - 1);
             List<string> list = new List<string>(Singleton.allColorAvaible);
             int index = list.IndexOf(tag);
             list.RemoveAt(index);
             Singleton.allColorAvaible = list.ToArray();
 
+            //Destroy the awnser to set a new one
             GameObject[] tt = GameObject.FindGameObjectsWithTag("question");
             Destroy(tt[0]);
+            Singleton.Instance.score += 10;
 
         }
         else
