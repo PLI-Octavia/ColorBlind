@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class QuestionViews : MonoBehaviour {
 
-    private float initX = -9.15f;
-    private float initY = -4.5f;
-    private float initZ = 2.5f;
+    private float initX = -10.15f;
+    private float initY = 0.5f;
+    private float initZ = -2.5f;
 
     void Start()
     {
@@ -58,7 +58,7 @@ public class QuestionViews : MonoBehaviour {
     private float getInterval()
     {
         float screenSize = Screen.width;
-        return (screenSize / 7) / 50;
+        return (screenSize / 10) / 50;
     }
 }
     
